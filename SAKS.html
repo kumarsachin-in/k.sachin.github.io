@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Your Name · Masters Thesis Project</title>
+  <meta name="description" content="One‑page academic website for my Masters thesis – research on [Your Topic]">
+  <meta name="author" content="Your Full Name">
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts: Lato (sans) and EB Garamond (serif) for a thoughtful, academic feel -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fefcf7;   /* soft natural background */
+      color: #1e2a2e;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Typography – balanced, readable, with a touch of elegance */
+    h1, h2, h3 {
+      font-family: 'EB Garamond', serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      color: #1e2a2e;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #e2dcd0;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #4a5b5f;
+      margin-bottom: 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header / hero area – minimal and focused */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #2c3e2f;
+    }
+
+    /* Navigation – simple, clean, only on desktop (no heavy menus) */
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid #e9e2d4;
+      margin-bottom: 1rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 400;
+      color: #2f4b3c;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #1e2a2e;
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid #f0ebe3;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    /* Cards / project grid – subtle and elegant */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: #ffffffdb;
+      backdrop-filter: blur(1px);
+      border-radius: 18px;
+      padding: 1.8rem;
+      transition: all 0.2s ease;
+      border: 1px solid #f0e7db;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #cdc5b5;
+      box-shadow: 0 10px 20px -10px rgba(0,0,0,0.05);
+    }
+
+    .project-card i {
+      font-size: 2rem;
+      color: #7f6e5b;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .publication-list {
+      list-style: none;
+    }
+
+    .publication-list li {
+      margin-bottom: 1.2rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .publication-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #7f6e5b;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #cbc1b0;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #2f4b3c;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: #f5efe7;
+      border-color: #a69b89;
+    }
+
+    /* contact & social */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .contact-info a {
+      color: #2f4b3c;
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .contact-info a i {
+      font-size: 1.2rem;
+    }
+
+    .contact-info a:hover {
+      color: #1e2a2e;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 0.85rem;
+      color: #6b6a66;
+      border-top: 1px solid #ece5db;
+    }
+
+    /* Responsive */
+    @media (max-width: 750px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      section {
+        padding: 2.5rem 0;
+      }
+      .hero {
+        min-height: 70vh;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+    }
+
+    /* images (if you add any) */
+    img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .highlight {
+      background: #f9f2e7;
+      border-left: 3px solid #7f6e5b;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: normal;
+      border-radius: 0 12px 12px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- simple anchor navigation -->
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#thesis">Thesis</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Hero section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Your Full Name</h1>
+      <div class="subhead">Masters Candidate · Department · University Name</div>
+      <p>Exploring the intersection of [Your Field] and [Core Interest]. My thesis investigates [short captivating phrase].</p>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <section id="about">
+    <h2>About</h2>
+    <p style="margin-bottom: 1rem;">I am a graduate researcher interested in the way [topic] shapes our understanding of [problem/context]. My work bridges [discipline A] and [discipline B] with a focus on [methodology]. Before my graduate studies, I earned my BA/BS in [previous degree] from [University].</p>
+    <p>Outside of research, I am passionate about [teaching/outreach/creative practice]. I believe that drawing, slow observation, and interdisciplinary dialogue can transform how we approach complex questions — a philosophy that deeply informs my thesis.</p>
+    <div class="highlight">
+      <i class="fas fa-quote-left" style="margin-right: 0.5rem; opacity: 0.6;"></i> 
+      My research is guided by the conviction that slowing down to observe and reflect is not a luxury but a necessity for meaningful inquiry.
+    </div>
+  </section>
+
+  <!-- Thesis project / core focus (inspired by the spirit of Andrea Kantrowitz's work) -->
+  <section id="thesis">
+    <h2>Masters Thesis</h2>
+    <h3 style="margin-bottom: 0.25rem;">Title: [The working title of your thesis]</h3>
+    <p style="color: #5f6c65; margin-bottom: 1.2rem;">Supervised by Prof. [Advisor Name] · [Year]</p>
+    <p>My thesis project examines [core research question]. Through [methodology: ethnographic, design-based, archival, empirical, etc.], I aim to understand how [key phenomenon] operates within [specific context]. Preliminary findings suggest that [brief insight].</p>
+    <p style="margin-top: 1rem;">The project is structured around three intertwined components: theoretical framework, iterative fieldwork/studio work, and a final public output (e.g., interactive website, paper, exhibition).</p>
+    <a href="#" class="btn-outline" style="margin-top: 1rem;"><i class="fas fa-file-alt"></i> Thesis abstract (PDF)</a>
+  </section>
+
+  <!-- Research / ongoing projects -->
+  <section id="research">
+    <h2>Research & Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <i class="fas fa-paintbrush"></i>
+        <h3>Visual thinking & cognition</h3>
+        <p>How does drawing externalize thought? I explore the cognitive benefits of mark-making for knowledge construction and reflective practice.</p>
+        <a href="#" class="btn-outline">Learn more →</a>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-chalkboard-user"></i>
+        <h3>Pedagogical approaches</h3>
+        <p>Developing workshops and classroom strategies that integrate drawing as a tool for deep learning across disciplines.</p>
+        <a href="#" class="btn-outline">Workshop notes →</a>
+      </div>
+      <div class="project-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Nature & material practice</h3>
+        <p>Field studies combining observational drawing with environmental humanities. This project will culminate in a small publication.</p>
+        <a href="#" class="btn-outline">Field journal →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications / conference papers (placeholder) -->
+  <section id="publications">
+    <h2>Selected Publications & Presentations</h2>
+    <ul class="publication-list">
+      <li><strong>Your Name, A.</strong> (2025). “Tentative title of a conference paper.” <em>Conference Name</em>, City, Country. [<a href="#" style="color:#2f4b3c;">link</a>]</li>
+      <li><strong>Your Name, A.</strong> & Co-author, J. (2024). “Drawing as epistemic practice.” <em>Journal of Interdisciplinary Studies</em>, 12(2), 45–67.</li>
+      <li><strong>Your Name, A.</strong> (2024). “Workshop: sketching for research.” Presented at University Symposium on Creative Methods.</li>
+    </ul>
+    <p style="margin-top: 1rem;">Full list of publications available upon request or via <a href="#" style="color:#2f4b3c;">Google Scholar / ORCID</a>.</p>
+  </section>
+
+  <!-- Contact / CV link (exactly for your CV) -->
+  <section id="contact">
+    <h2>Connect</h2>
+    <div class="contact-info">
+      <a href="mailto:your.email@university.edu"><i class="fas fa-envelope"></i> your.email@university.edu</a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter / X</a>
+      <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    </div>
+    <div class="highlight" style="margin-top: 1rem;">
+      <i class="fas fa-id-card"></i> &nbsp; Download my CV (PDF) &nbsp;|&nbsp; <a href="#" style="color:#1e2a2e;">Curriculum Vitae</a>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.95rem;">For thesis inquiries, research collaboration, or speaking engagements, please reach out via email.</p>
+  </section>
+
+  <footer>
+    <p>© <span id="current-year"></span> Your Full Name – Designed for clarity, observation, and slow inquiry.</p>
+    <p style="margin-top: 0.5rem;"><i class="fas fa-draw-polygon"></i> One‑page thesis website – freely inspired by Andrea Kantrowitz’s approach to drawing thought.</p>
+  </footer>
+</div>
+
+<script>
+  // Auto-update footer year
+  document.getElementById('current-year').innerText = new Date().getFullYear();
+</script>
+</body>
+</html>
